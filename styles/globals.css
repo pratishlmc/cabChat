@@ -1,0 +1,121 @@
+body {
+	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	padding: 20px;
+}
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+}
+.input-box {
+	height: 48px;
+	border-radius: 30px;
+	background-color: rgb(39, 39, 39);
+	width: 90%;
+	bottom: 10px;
+	position: fixed;
+	display: flex;
+}
+input {
+	border-top-left-radius: 30px;
+	border-bottom-left-radius: 30px;
+	width: 100%;
+	outline: none;
+	border: none;
+	padding: 5px 10px 5px 20px;
+	background-color: rgb(39, 39, 39);
+	font-size: medium;
+}
+.send-button {
+	width: 100px;
+	margin-top: 7px;
+	margin-bottom: 7px;
+	margin-right: 7px;
+	border-radius: 15px;
+	background-color: blueviolet;
+	border: none;
+	outline: none;
+	font-size: medium;
+	font-weight: light;
+	font-family: "Inter";
+	cursor: pointer;
+}
+.send-button:hover {
+	background-color: rgb(159, 65, 248);
+	animation: ease-in-out;
+	transition: 1s;
+}
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.cards-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 20px;
+	padding: 10px;
+}
+.activities-card {
+	min-width: 300px;
+	flex-basis: 33.33%;
+	background-color: rgb(29, 29, 29);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 20px;
+	cursor: pointer;
+}
+.activities-card button {
+	background-color: black;
+	font-size: medium;
+	padding: 10px;
+	color: white;
+	border: none;
+	outline: none;
+	width: 100%;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	cursor: pointer;
+}
+.language-input{
+	resize: none;
+	padding: 15px;
+	background-color: rgb(20, 20, 20);
+	border-radius: 10px;
+	border-color: rgb(77, 187, 221);
+	font-size: large;
+	
+}
+#language-select {
+  width: 150px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
+
+
+.activities-card button:hover {
+	transition: 500ms ease-in-out;
+	background-color: rgb(12, 12, 12);
+}
+body::-webkit-scrollbar {
+	width: 4px; /* width of the entire scrollbar */
+}
+body::-webkit-scrollbar-track {
+	background: transparent; /* color of the tracking area */
+	margin-top: 30px;
+	margin-bottom: 100px;
+}
+body::-webkit-scrollbar-thumb {
+	background-color: lightgrey; /* color of the scroll thumb */
+	border-radius: 50px;
+}
