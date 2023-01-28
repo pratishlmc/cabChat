@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { ChatFeed, Message } from 'react-chat-ui'
-const { Configuration, OpenAIApi } = require('openai');
+import { requestGpt } from '../utils/requestGpt';
+import { Waveform } from '@uiball/loaders'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,19 +21,10 @@ export default function Chat() {
     new Message({ id: 1, message: "Hey there👋, I am developed by @pratishlmc using GPT-3 engine from Openai." }),
     new Message({ id: 1, message: "How can I help you?" }),
   ])
-  const [openAi, setOpenAi] = useState([]);
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    scrollToBottom()
-    const configuration = new Configuration({
-      apiKey: process.env.NEXT_PUBLIC_OPENAI_KEY
-    });
-    const open_ai = new OpenAIApi(configuration);
-    setOpenAi(open_ai)
-  }, [])
-
   const onSend = async () => {
+    const open_ai = await requestGpt();
 
     messages.push(new Message({
       id: 0,
@@ -40,15 +32,19 @@ export default function Chat() {
     }));
     scrollToBottom()
     setLoading(true);
-    const response = await openAi.createCompletion({
+    const response = await open_ai.createCompletion({
       model: "text-davinci-003",
       prompt: input,
       max_tokens: 500,
       temperature: 0.5
     });
+
+    let res = response.data.choices[0].text
+    console.log(res);
+
     messages.push(new Message({
       id: 1,
-      message: response.data.choices[0].text,
+      message: JSON.parse(JSON.stringify(res)),
     }));
     setInput("");
     setLoading(false);
@@ -57,6 +53,9 @@ export default function Chat() {
 
   return (
     <>
+      <Head>
+        <title>Chat</title>
+      </Head>
       <main className={styles.main}>
         {/* <section> */}
         <div style={inter.style} className={styles.chats}>
@@ -66,7 +65,6 @@ export default function Chat() {
             hasInputField={false}
             showSenderName
             bubblesCentered={false}
-
             bubbleStyles={
               {
                 text: {
@@ -86,10 +84,11 @@ export default function Chat() {
             }
           />
         </div>
-        <div ref={messagesEndRef} />
       </main>
+      <div ref={messagesEndRef} />
       <div style={inter.style} className='footer'>
-        <form className='input-box' onSubmit={(e) => { e.preventDefault(), input !== "" ? onSend() : alert("🩴 Don't be a pussy") }}>
+        <form className='input-box'
+          onSubmit={(e) => { e.preventDefault(), input !== "" ? onSend() : alert("🩴 Don't be a pussy") }}>
           <input placeholder=':) Ask Anything' value={input} onChange={(e) => setInput(e.target.value)} />
           <button type='submit' className='send-button'>Send</button>
         </form>

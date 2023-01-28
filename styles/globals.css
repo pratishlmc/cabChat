@@ -83,26 +83,32 @@ input {
 	border-bottom-right-radius: 20px;
 	cursor: pointer;
 }
-.language-input{
+.language-input {
 	resize: none;
 	padding: 15px;
 	background-color: rgb(20, 20, 20);
 	border-radius: 10px;
 	border-color: rgb(77, 187, 221);
 	font-size: large;
-	
 }
 #language-select {
-  width: 150px;
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+	width: 150px;
+	padding: 8px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }
-
-
-
-
+.language-form button {
+	height: 40px;
+	border-radius: 5px;
+	width: 100%;
+	background-color: #0071e3;
+	color: white;
+	font-size: medium;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
 .activities-card button:hover {
 	transition: 500ms ease-in-out;
 	background-color: rgb(12, 12, 12);
