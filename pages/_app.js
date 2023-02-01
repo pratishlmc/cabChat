@@ -5,6 +5,7 @@ import { BsHouseFill } from "react-icons/bs"
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
+import Script from 'next/script'
 
 const roboto = Roboto({ weight: '400' })
 
@@ -18,6 +19,8 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/icons/cabbage.png" />
         <link rel="manifest" href="/manifest.json" />
+        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8470071689417907"
+          crossorigin="anonymous"></Script>
       </Head>
       {
         router.pathname !== '/' ?
