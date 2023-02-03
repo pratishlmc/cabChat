@@ -19,8 +19,8 @@ export default function App({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/icons/cabbage.png" />
         <link rel="manifest" href="/manifest.json" />
-        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8470071689417907"
-          crossorigin="anonymous"></Script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8470071689417907"
+     crossorigin="anonymous"></script>
       </Head>
       {
         router.pathname !== '/' ?
